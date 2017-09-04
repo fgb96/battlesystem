@@ -25,16 +25,24 @@ public class principal {
         pjs pj_enemigo = new pjs(scan.nextLine());
         
         System.out.println(pj1.getNombre()+" La vida es: "+pj1.getVida()+" La fuerza es: "+pj1.getFuerza()
-        +" la defensa es: "+pj1.getDefensa()+" la magia es: "+pj1.getMagia()+" la defmagica es: "+pj1.getDefmagica());
+        +" la defensa es: "+pj1.getDefensa()+" la magia es: "+pj1.getMagia()+" la defmagica es: "+pj1.getDefmagica()+
+        " Los ph son: "+pj1.getPh());
         
         System.out.println(pj2.getNombre()+" La vida es: "+pj2.getVida()+" La fuerza es: "+pj2.getFuerza()
-        +" la defensa es: "+pj2.getDefensa()+" la magia es: "+pj2.getMagia()+" la defmagica es: "+pj2.getDefmagica());
+        +" la defensa es: "+pj2.getDefensa()+" la magia es: "+pj2.getMagia()+" la defmagica es: "+pj2.getDefmagica()+
+        " Los ph son: "+pj2.getPh());
         
         System.out.println(pj3.getNombre()+" La vida es: "+pj3.getVida()+" La fuerza es: "+pj3.getFuerza()
-        +" la defensa es: "+pj3.getDefensa()+" la magia es: "+pj3.getMagia()+" la defmagica es: "+pj3.getDefmagica());
+        +" la defensa es: "+pj3.getDefensa()+" la magia es: "+pj3.getMagia()+" la defmagica es: "+pj3.getDefmagica()+
+        " Los ph son: "+pj3.getPh());
         
-        System.out.println(pj_enemigo.getNombre()+" La vida es: "+pj_enemigo.getVida()+" La fuerza es: "+pj_enemigo.getFuerza()
-        +" la defensa es: "+pj_enemigo.getDefensa()+" la magia es: "+pj_enemigo.getMagia()+" la defmagica es: "+pj_enemigo.getDefmagica());
+        System.out.println(pj_enemigo.getNombre()+" La vida es: "+(pj_enemigo.getVida()+1000)+" La fuerza es: "+pj_enemigo.getFuerza()
+        +" la defensa es: "+pj_enemigo.getDefensa()+" la magia es: "+pj_enemigo.getMagia()+" la defmagica es: "+pj_enemigo.getDefmagica()+
+        " Los ph son: "+pj_enemigo.getPh());
+        
+        pj_enemigo.setVida(pj_enemigo.getVida()+1000);
+        
+        System.out.println(pj_enemigo.getVida());
         
 }
 }

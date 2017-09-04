@@ -2,7 +2,8 @@
 package main;
 import java.util.Random;
 public class pjs {
-    private int vida,fuerza,defensa,magia,defmagica;
+    private int vida,fuerza,defensa,magia,defmagica,salud,ph;
+    boolean procede = true;
     private String nombre;
     Random rand = new Random(System.nanoTime());
     
@@ -12,6 +13,7 @@ public class pjs {
         defensa = rand.nextInt(100);
         magia = rand.nextInt(100);
         defmagica = rand.nextInt(100);
+        ph = rand.nextInt(5);
         this.nombre = nombre;
     }
    
@@ -41,6 +43,10 @@ public class pjs {
         return nombre;
     }
     
+    public int getPh(){
+        return ph;
+    }
+    
     // Set
 
     public void setVida(int vida) {
@@ -67,11 +73,45 @@ public class pjs {
         this.nombre = nombre;
     }
     
+    public void setPh (int ph){
+        this.ph = ph;
+    }
     
     // Creamos el funcionamiento de ataque fisico
     
-    public void ataquefisico(){
+    public void ataquefisico(pjs pj){
+      //  int salud = (pj.getFuerza()*2)%rand.nextInt(3);
+        this.salud = pj.getFuerza();
+    }
+    
+    public void ataquemagico(pjs pj){
+        if (ph > 0){
+            this.salud = pj.getMagia();
+        } else {
+            procede = false;
+        }
         
     }
+    
+    public void deffisico(pjs pj){
+        if (salud-pj.defensa <= 0){
+            pj.vida -= 1;
+             System.out.println(pj.nombre+" tiene una vida de: "+pj.vida+" Solo has conseguido causarle 1 de daño");
+        } else {
+        pj.vida = pj.vida-(salud-pj.defensa);
+        System.out.println(pj.nombre+" tiene una vida de: "+pj.vida);
+    }}
+    
+    public void defmagica(pjs pj){
+        if (procede){
+        if (salud-pj.defmagica <= 0){
+            pj.vida -= 1;
+            System.out.println(pj.nombre+" tiene una vida de: "+pj.vida+" Solo has conseguido causarle 1 de daño");
+        } else {
+        pj.vida = pj.vida-(salud-pj.defmagica);
+        System.out.println(pj.nombre+" tiene una vida de: "+pj.vida);
+    }} else {
+       System.out.println("No has podido realizar el ataque magico");
+}}
     
 }
